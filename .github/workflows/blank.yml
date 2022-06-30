@@ -22,9 +22,9 @@ jobs:
       env:
         KEY: ${{ secrets.PUBLIC_KEY }}
       run: |
-        mkdir .ssh
-        echo "$KEY" > .ssh/id_rsa
+        mkdir ~/.ssh
+        echo "$KEY" > ~/.ssh/id_rsa
         chmod 600 .ssh/id_rsa
     - name: Running Playbook
       run: |
-        ansible-playbook -i inventory myplay.yml
+        ssh -i ~/.ssh/id_rsa ubuntu@44.204.11.47 date
