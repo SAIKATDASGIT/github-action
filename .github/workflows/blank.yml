@@ -1,13 +1,9 @@
 
 name: Ansible deploy
-
 on: [push]
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v1
     - name: Set up Python 3.7
@@ -27,4 +23,4 @@ jobs:
         chmod 600 ~/.ssh/id_rsa
     - name: Running Playbook
       run: |
-        ssh -i ~/.ssh/id_rsa ubuntu@44.204.11.47 date
+        echo "$USER --- $PWD" 
