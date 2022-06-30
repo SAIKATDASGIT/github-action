@@ -18,9 +18,10 @@ jobs:
       env:
         KEY: ${{ secrets.PUBLIC_KEY }}
       run: |
-        mkdir ~/.ssh
-        echo "$KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
+        mkdir /home/runner/.ssh
+        echo "$KEY" > /home/runner/.ssh/id_rsa
+        chmod 600 /home/runner/.ssh/id_rsa
     - name: Running Playbook
       run: |
+        ssh ubuntu@44.204.11.47 mkdir hola
         echo "$USER --- $PWD" 
