@@ -23,6 +23,6 @@ jobs:
         chmod 400 /home/runner/.ssh/id_rsa
     - name: Running Playbook
       run: |
-        cat ~/.ssh/id_rsa
+        cat /home/runner/.ssh/id_rsa
         ssh ubuntu@44.204.11.47 mkdir hola
         echo "$USER --- $PWD" 
