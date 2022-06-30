@@ -23,8 +23,8 @@ jobs:
         KEY: ${{ secrets.PUBLIC_KEY }}
       run: |
         mkdir .ssh
-        echo "$KEY" > .ssh/id_rsab
-        chmod 600 .ssh/id_rsab
+        echo "$KEY" > .ssh/id_rsa
+        chmod 600 .ssh/id_rsa
     - name: Running Playbook
       run: |
         ansible-playbook -i inventory myplay.yml
