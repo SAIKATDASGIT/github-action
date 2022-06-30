@@ -16,13 +16,12 @@ jobs:
         pip install ansible==2.9.2 requests
     - name: set ansible config secrets
       env:
-        KEY: ${{ secrets.PUBLIC_KEY }}
+        KEY: ${{ secrets.laptop-key.pem }}
       run: |
-        mkdir /home/runner/.ssh
-        echo "$KEY" > /home/runner/.ssh/id_rsa
-        chmod 400 /home/runner/.ssh/id_rsa
+        echo "$KEY" > /home/runner/laptop-key.pem
+        chmod 400 /home/runner/laptop-key.pem
     - name: Running Playbook
       run: |
-        cat /home/runner/.ssh/id_rsa
-        ssh ubuntu@44.204.11.47 mkdir hola
+        cat /home/runner/laptop-key.pem
+        ssh -i /home/runner/laptop-key.pem ubuntu@44.204.11.47 mkdir hola
         echo "$USER --- $PWD" 
