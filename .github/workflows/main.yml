@@ -12,14 +12,15 @@ jobs:
         python-version: 3.7
     - name: Install dependencies
       run: |
-        apt install ansible -y
+       sudo apt update
+        sudo apt install ansible -y
         ansible --version
     - name: set ansible config secrets
       env:
         KEY: ${{ secrets.Private_Key }}
       run: |
         python3 --version
-        service sshd start
+        sudo service sshd start
         mkdir /home/runner/.ssh/
         echo "$KEY" > /home/runner/id_rsa
         chmod 400 /home/runner/id_rsa
