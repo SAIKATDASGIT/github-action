@@ -12,7 +12,7 @@ jobs:
         python-version: 3.7
     - name: Install dependencies
       run: |
-       sudo apt update
+        sudo apt update
         sudo apt install ansible -y
         ansible --version
     - name: set ansible config secrets
@@ -21,10 +21,10 @@ jobs:
       run: |
         python3 --version
         sudo service sshd start
-        mkdir /home/runner/.ssh/
-        echo "$KEY" > /home/runner/id_rsa
-        chmod 400 /home/runner/id_rsa
+        sudo mkdir /home/runner/.ssh/
+        sudo echo "$KEY" > /home/runner/id_rsa
+        sudo chmod 400 /home/runner/.ssh/id_rsa
     - name: Running Playbook
       run: |
-        ssh -i /home/runner/id_rsa ubuntu@44.204.11.47 mkdir hola
+        ssh -i /home/runner/.ssh/id_rsa ubuntu@54.196.162.155 mkdir hola
         
