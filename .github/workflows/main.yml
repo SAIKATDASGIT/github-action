@@ -21,6 +21,7 @@ jobs:
       run: |
         python3 --version
         sudo service sshd start
+        ls -lrt /home/runner/.ssh
         sudo echo $KEY
         #sudo echo "$KEY" > /home/runner/.ssh/id_rsa
         #sudo chmod 600 /home/runner/.ssh/id_rsa
