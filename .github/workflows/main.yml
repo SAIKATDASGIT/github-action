@@ -16,7 +16,7 @@ jobs:
         sudo apt install ansible -y
         ansible --version
     - name: Custom Command
-      env:
+      env: 
         KEY: ${{ secrets.Private_Key }}
       run: |
         echo $PWD 
