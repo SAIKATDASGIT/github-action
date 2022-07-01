@@ -21,7 +21,6 @@ jobs:
       run: |
         python3 --version
         sudo service sshd start
-        sudo mkdir /home/runner/.ssh/
         sudo echo "$KEY" > /home/runner/.ssh/id_rsa
         sudo chmod 600 /home/runner/.ssh/id_rsa
     - name: Running Playbook
