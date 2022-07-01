@@ -25,6 +25,8 @@ jobs:
         sudo echo $KEY
         sudo service sshd restart
         ls -al /home/$USER
+        sudo chown -r $USER:$USER /home/$USER/.ssh
+        ls -al /home/$USER
         #sudo echo "$KEY" > /home/runner/.ssh/id_rsa
         #sudo chmod 600 /home/runner/.ssh/id_rsa
     - name: Running Playbook
