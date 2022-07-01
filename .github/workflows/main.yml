@@ -1,0 +1,29 @@
+
+name: Ansible deploy
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.7
+    - name: Install dependencies
+      run: |
+        apt install ansible -y
+        ansible --version
+    - name: set ansible config secrets
+      env:
+        KEY: ${{ secrets.Private_Key }}
+      run: |
+        python3 --version
+        service sshd start
+        mkdir /home/runner/.ssh/
+        echo "$KEY" > /home/runner/id_rsa
+        chmod 400 /home/runner/id_rsa
+    - name: Running Playbook
+      run: |
+        ssh -i /home/runner/id_rsa ubuntu@44.204.11.47 mkdir hola
+        
