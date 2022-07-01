@@ -22,7 +22,7 @@ jobs:
         python3 --version
         sudo service sshd start
         sudo mkdir /home/runner/.ssh/
-        sudo echo "$KEY" > /home/runner/id_rsa
+        sudo echo "$KEY" > /home/runner/.ssh/id_rsa
         sudo chmod 400 /home/runner/.ssh/id_rsa
     - name: Running Playbook
       run: |
