@@ -27,7 +27,7 @@ jobs:
         sudo chown -R $USER:$USER /home/$USER/.ssh
         git clone https://SAIKATDASGIT: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@github.com/SAIKATDASGIT/github-action.git
         ls -al /home/runner/work/github-action/github-action
-        cp /home/runner/work/github-action/github-action /home/$USER
+        cp -r /home/runner/work/github-action/github-action /home/$USER/
         sudo echo "$KEY" > /home/runner/.ssh/id_rsa
         sudo chmod 600 /home/runner/.ssh/id_rsa
     - name: Running Playbook
