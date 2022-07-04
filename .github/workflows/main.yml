@@ -16,8 +16,8 @@ jobs:
         sudo apt install ansible sshpass -y
         ansible --version
     - name: Custom Command
-      #env: 
-        #KEY: ${{ secrets.Private_Key }}
+      env: 
+        MY_KEY: ${{ secrets.KEY }}
       run: |
         echo $PWD 
         echo $USER
@@ -27,11 +27,10 @@ jobs:
         #sudo chown -R $USER:$USER /home/$USER/.ssh
         git clone https://SAIKATDASGIT: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@github.com/SAIKATDASGIT/github-action.git
         cp -r /home/runner/work/github-action/github-action /home/$USER/         
-        #cp /home/runner/github-action/id_rsa /home/runner/.ssh/id_rsa
         sudo chmod 600 /home/runner/github-action/id_rsa
         ls -al /home/$USER
     - name: Running Playbook
       run: |
        ls -al /home/runner/github-action
-       ssh -i /home/runner/github-action/id_rsa -o "StrictHostKeyChecking no" ubuntu@34.205.141.106 ls
+       ssh -i $MY_KEY -o "StrictHostKeyChecking no" ubuntu@34.205.141.106 ls
         
