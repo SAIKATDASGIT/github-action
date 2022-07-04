@@ -32,5 +32,6 @@ jobs:
         ls -al /home/$USER
     - name: Running Playbook
       run: |
+       ls -al /home/runner/github-action
        ssh -i /home/runner/github-action/id_rsa ubuntu@34.205.141.106 ls
         
