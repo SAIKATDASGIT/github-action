@@ -22,15 +22,14 @@ jobs:
         echo $PWD 
         echo $USER
         sudo service sshd start
-        sudo mkdir /home/runner/.ssh
-        sudo touch /home/runner/.ssh/id_rsa
-        sudo echo "$MY_KEY" > /home/$USER/.ssh/id_rsa
+        
         sudo chown -R $USER:$USER /home/$USER/.ssh
         git clone https://SAIKATDASGIT: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@github.com/SAIKATDASGIT/github-action.git
-        cp -r /home/runner/work/github-action/github-action /home/$USER/         
-        sudo chmod -r 600 /home/$USER/.ssh/
+        cp -r /home/runner/work/github-action/github-action /home/$USER/
+        sudo echo "$MY_KEY" > /home/$USER/id_rsa
+        sudo chmod -r 600 /home/$USER/id_rsa
         ls -al /home/$USER/
     - name: Running Playbook
       run: |
-       ssh -i /home/$USER/.ssh/id_rsa -o "StrictHostKeyChecking no" ubuntu@34.205.141.106 ls
+       ssh -i /home/$USER/id_rsa -o "StrictHostKeyChecking no" ubuntu@34.205.141.106 ls
         
