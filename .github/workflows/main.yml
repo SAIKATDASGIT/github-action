@@ -31,7 +31,6 @@ jobs:
         ls -al /home/$USER/.ssh
     - name: Running Playbook
       run: |
-       sudo service sshd status
        sshpass -p ubuntu ssh -i ~/.ssh/id_rsa ubuntu@34.205.141.106 ls
-       ansible -i /home/$USER/github-action/inventory worker -m ping
+       # ansible -i /home/$USER/github-action/inventory worker -m ping
         
