@@ -27,8 +27,10 @@ jobs:
         mkdir /home/$USER/.ssh
         sudo echo "$MY_KEY" > /home/$USER/.ssh/id_rsa      
         sudo chmod 600 /home/$USER/.ssh/id_rsa
+        sudo service sshd restart
         ls -al /home/$USER/.ssh
     - name: Running Playbook
       run: |
+       sudo service sshd status
        ansible -i /home/$USER/github-action/inventory worker -m ping
         
