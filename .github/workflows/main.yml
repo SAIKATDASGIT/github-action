@@ -29,10 +29,10 @@ jobs:
         sudo chmod 400 /home/$USER/.ssh/id_rsa
         sudo service sshd restart
         ls -al /home/$USER/.ssh
-    - name: Running Playbook
+    - name: Connecting Other Server
       run: |
-       echo "Environment Variables"
-       env
-       #ssh -i /home/$USER/.ssh/id_rsa ubuntu@34.205.141.106 ls
+       #echo "Environment Variables" env
+       
+       ssh -i $HOME/.ssh/id_rsa ubuntu@34.205.141.106 ls
        ansible -i ./inventory worker -m ping
         
