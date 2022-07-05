@@ -13,7 +13,7 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt update
-        sudo apt install ansible sshpass -y
+        sudo apt install ansible -y
         ansible --version
     - name: Custom Command
       env: 
@@ -23,14 +23,14 @@ jobs:
         echo $USER
         sudo service sshd start
         git clone https://SAIKATDASGIT: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@github.com/SAIKATDASGIT/github-action.git
-        cp -r /home/runner/work/github-action/github-action /home/$USER/
+        cp -r /home/$USER/work/github-action/github-action /home/$USER/
         mkdir /home/$USER/.ssh
-        sudo echo "$MY_KEY" > /home/$USER/.ssh/id_rsa      
+        echo "$MY_KEY" > /home/$USER/.ssh/id_rsa      
         sudo chmod 400 /home/$USER/.ssh/id_rsa
         sudo service sshd restart
         ls -al /home/$USER/.ssh
     - name: Running Playbook
       run: |
-       sshpass -p ubuntu ssh -i /home/$USER/.ssh/id_rsa ubuntu@34.205.141.106 ls
+       ssh -i /home/$USER/.ssh/id_rsa ubuntu@34.205.141.106 ls
        # ansible -i /home/$USER/github-action/inventory worker -m ping
         
