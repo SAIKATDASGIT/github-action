@@ -33,5 +33,7 @@ jobs:
       run: |
        #echo "Environment Variables" env
        #ssh -i $HOME/.ssh/id_rsa -o StrictHostKeyChecking=no ubuntu@34.205.141.106 ls
+       ssh -i $HOME/.ssh/id_rsa ubuntu@34.205.141.106 ls
+       
        ansible -i ./inventory worker -m ping
         
