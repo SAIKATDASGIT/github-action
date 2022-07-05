@@ -17,7 +17,7 @@ jobs:
         ansible --version
     - name: Custom Command
       env: 
-        MY_KEY: ${{ secrets.KEY }}
+        MY_KEY: ${{ secrets.PRIVATE }}
       run: |
         echo $PWD 
         echo $USER
