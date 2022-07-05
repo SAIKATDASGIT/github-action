@@ -31,6 +31,8 @@ jobs:
         ls -al /home/$USER/.ssh
     - name: Running Playbook
       run: |
-       ssh -i /home/$USER/.ssh/id_rsa ubuntu@34.205.141.106 ls
+       echo "Environment Variables"
+       env
+       #ssh -i /home/$USER/.ssh/id_rsa ubuntu@34.205.141.106 ls
        # ansible -i /home/$USER/github-action/inventory worker -m ping
         
