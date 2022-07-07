@@ -22,8 +22,6 @@ jobs:
         echo $PWD 
         echo $USER
         sudo service sshd start
-        git clone https://SAIKATDASGIT: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@github.com/SAIKATDASGIT/github-action.git
-        cp -r /home/$USER/work/github-action/github-action /home/$USER/
         mkdir /home/$USER/.ssh
         echo "$MY_KEY" > /home/$USER/.ssh/id_rsa      
         sudo chmod 400 /home/$USER/.ssh/id_rsa
@@ -31,6 +29,6 @@ jobs:
         ls -al /home/$USER/.ssh
     - name: Connecting Other Server
       run: |
-       ssh -i $HOME/.ssh/id_rsa -o StrictHostKeyChecking=no cnadmin@192.168.0.105
+       ssh -i home/$USER/.ssh/id_rsa -o StrictHostKeyChecking=false cnadmin@192.168.0.105
        ansible -i ./inventory worker -m ping
         
