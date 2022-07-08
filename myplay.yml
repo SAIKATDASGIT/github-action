@@ -13,3 +13,7 @@
       ansible.builtin.git:     
         repo: https://github.com/SAIKATDASGIT/argocd.git
         dest: /home/$USER/argo
+    - name: Copying from Master
+      copy:
+         src: /home/runner/work/github-action/github-action/test
+         dest: /home/ubuntu/
