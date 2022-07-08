@@ -1,2 +1,2 @@
 [worker]
-192.168.0.105 ansible_user=cnadmin
+3.85.61.248 ansible_user=ubuntu
