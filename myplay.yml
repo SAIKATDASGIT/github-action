@@ -17,3 +17,7 @@
       copy:
          src: /home/runner/work/github-action/github-action/test
          dest: /home/ubuntu/
+    - name: Copying Already file
+      copy:
+         src: /home/runner/work/github-action/github-action/already
+         dest: /home/ubuntu/
