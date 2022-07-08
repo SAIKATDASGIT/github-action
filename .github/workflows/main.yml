@@ -24,7 +24,7 @@ jobs:
         sudo service sshd start
         mkdir /home/$USER/.ssh
         echo "$MY_KEY" > /home/$USER/.ssh/id_rsa      
-        sudo chmod 644 /home/$USER/.ssh/id_rsa
+        sudo chmod 400 /home/$USER/.ssh/id_rsa
         sudo service sshd restart
         ls -al /home/$USER/.ssh
     - name: Connecting Other Server
