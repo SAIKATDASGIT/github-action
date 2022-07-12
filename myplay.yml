@@ -32,7 +32,7 @@
     - name: Copying Index file to VM1
       copy:
         src: /home/runner/work/github-action/github-action/vm1_nginx.html
-        dest: var/www/html/index.nginx-debian.html
+        dest: /var/www/html/index.nginx-debian.html
 - hosts: vm2
   become: true
   gather_facts: false
@@ -44,5 +44,5 @@
     - name: Copying Index File to VM2
       copy:
         src: /home/runner/work/github-action/github-action/vm2_nginx.html
-        dest: var/www/html/index.nginx-debian.html
+        dest: /var/www/html/index.nginx-debian.html
   
