@@ -29,6 +29,7 @@ jobs:
         ls -al /home/$USER/.ssh
     - name: Connecting Other Server
       run: |
-       ssh -i home/$USER/.ssh/id_rsa -o StrictHostKeyChecking=false ubuntu@3.85.61.248
+       ssh -i home/$USER/.ssh/id_rsa -o StrictHostKeyChecking=false ubuntu@20.123.157.156
+       ssh -i home/$USER/.ssh/id_rsa -o StrictHostKeyChecking=false ubuntu@40.122.212.216
        ansible-playbook -i ./inventory ./myplay.yml
         
