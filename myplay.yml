@@ -29,12 +29,20 @@
       copy:
         src: /home/runner/work/github-action/github-action/file1
         dest: /home/ubuntu
+    - name: Copying Index file to VM1
+      copy:
+        src: /home/runner/work/github-action/github-action/vm1_nginx.html
+        dest: var/www/html/index.nginx-debian.html
 - hosts: vm2
   become: true
   gather_facts: false
   tasks:
-    - name: Copying File2 to vm2
+    - name: Copying File2 to VM2
       copy:
         src: /home/runner/work/github-action/github-action/file2
         dest: /home/ubuntu
+    - name: Copying Index File to VM2
+      copy:
+        src: /home/runner/work/github-action/github-action/vm2_nginx.html
+        dest: var/www/html/index.nginx-debian.html
   
