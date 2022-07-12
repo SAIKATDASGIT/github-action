@@ -33,7 +33,7 @@
   become: true
   gather_facts: false
   tasks:
-    - name: Copying File2 vm2
+    - name: Copying File2 to vm2
       copy:
         src: /home/runner/work/github-action/github-action/file2
         dest: /home/ubuntu
