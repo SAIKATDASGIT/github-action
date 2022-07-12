@@ -21,14 +21,14 @@
       copy:
          src: /home/runner/work/github-action/github-action/already
          dest: /home/ubuntu/
- - hosts: vm1
+- hosts: vm1
    become: true
    gather_facts: false
    tasks:
      - name: Copying File1 to vm1
        src: /home/runner/work/github-action/github-action/test/file1
        dest: /home/ubuntu
-  - hosts: vm2
+- hosts: vm2
     become: true
     gather_facts: false
     tasks:
