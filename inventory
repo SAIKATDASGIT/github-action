@@ -1,2 +1,7 @@
-[worker]
-3.85.61.248 ansible_user=ubuntu
+[workers]
+40.122.212.216 ansible_user=ubuntu
+20.123.157.156 ansible_user=ubuntu
+[vm1]
+40.122.212.216 ansible_user=ubuntu
+[vm2]
+20.123.157.156 ansible_user=ubuntu
