@@ -26,6 +26,7 @@
   gather_facts: false
   tasks:
     - name: Copying File1 to vm1
+      copy:
         src: /home/runner/work/github-action/github-action/test/file1
         dest: /home/ubuntu
 - hosts: vm2
@@ -33,6 +34,7 @@
   gather_facts: false
   tasks:
     - name: Copying File2 vm2
+      copy:
         src: /home/runner/work/github-action/github-action/test/file2
         dest: /home/ubuntu
   
